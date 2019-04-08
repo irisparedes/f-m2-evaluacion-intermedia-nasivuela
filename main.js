@@ -28,6 +28,7 @@ function getRandomNumber(max) {
 
 // Generar un número aleatorio
 const randomNumber = getRandomNumber(100);
+console.log(randomNumber);
 
 // Crear un contador a 0
 let counter = 0;
@@ -35,19 +36,31 @@ let counter = 0;
 // Escuchar click de botón
 buttonEl.addEventListener('click', handleButtonClick);
 
-
 // Cuando se haga click en botón (handler)
 function handleButtonClick() {
-  console.log('CLICK');
-// Recoger el número del input
+  //console.log('CLICK');
+  // Recoger el número del input
+  const userNumber = parseInt(inputEl.value);
+  //console.log(userNumber);
 
-// Compararlo con el aleatorio y
-// Si es igual
-// Feedback has ganado
-// Si el número del input es mayor
-// Feedback demasiado alto
-// Si el número del input es menor
-// Feedback demasiado bajo
+  // Compararlo con el aleatorio y si es igual
+  if (userNumber === randomNumber) {
+    // Feedback has ganado
+    feedbackEl.innerHTML = 'HAS GANADO, CAMPEONA';
 
-// Aumentar el contador y ponerlo en el elemento contador de HTML
+    // Si el número del input es mayor
+  } else if (userNumber > randomNumber) {
+    // Feedback demasiado alto
+    feedbackEl.innerHTML = 'Demasiado alto';
+
+    // Si el número del input es menor
+  } else if (userNumber < randomNumber) {
+    // Feedback demasiado bajo
+    feedbackEl.innerHTML = 'Demasiado bajo';
+  }
+
+  // Aumentar el contador y ponerlo en el elemento contador de HTML
+  counter += 1;
+  // o counter = counter + 1
+  counterEl.innerHTML = counter;
 }
